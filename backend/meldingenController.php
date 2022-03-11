@@ -24,16 +24,18 @@ $statement->execute([
     ":melder" => $melder;
 ])
 
-$statement = $conn->prepare($query);
-
-$statement->execute([
-    ":attractie" => $attractie,
-    ":type" => $type,
-]);
-
-$items = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 header("Location: ../meldingen/index.php?msg=Melding Opgeslagen");
+// $statement = $conn->prepare($query);
+
+// $statement->execute([
+//     ":attractie" => $attractie,
+//     ":type" => $type,
+// ]);
+
+// $items = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
 
 
 
