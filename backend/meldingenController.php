@@ -11,31 +11,19 @@ echo $attractie . " / " . $capaciteit . " / " . $melder;
 require_once 'conn.php';
 
 //2. Query
-$query = "INSERT INTO meldingen (attractie, capaciteit, melder)
-VALUES(:attractie, :capaciteit, :melder)"
+$query = "INSERT INTO meldingen (attractie, capaciteit, melder) VALUES(:attractie, :capaciteit, :melder)"
 
 //3. Prepare
 $statement = $conn->prepare($query);
 
 //4. Execute
 $statement->execute([
-    ":attractie" => $attractie;
-    ":capaciteit" => $capaciteit;
-    ":melder" => $melder;
-])
+    ":attractie" => $attractie
+    ":capaciteit" => $capaciteit
+    ":melder" => $melder
+]);
+
+$items = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
 header("Location: ../meldingen/index.php?msg=Melding Opgeslagen");
-// $statement = $conn->prepare($query);
-
-// $statement->execute([
-//     ":attractie" => $attractie,
-//     ":type" => $type,
-// ]);
-
-// $items = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-
-
