@@ -11,7 +11,7 @@ if(empty($attractie))
 
 
 $capaciteit = $_POST['capaciteit']; 
-if(!is_numeric($attractie))
+if(!is_numeric($capaciteit))
 {
     $errors[] = "Vul voor capaciteit een geldig getal in.";
 }
