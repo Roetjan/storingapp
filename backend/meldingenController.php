@@ -1,7 +1,9 @@
 <?php
+$action = $_POST['action'];
 
-//Variabelen vullen
-$attractie = $_POST['attractie'];
+if ($action == "create")
+{
+    $attractie = $_POST['attractie'];
 if(empty($attractie))
 {
 
@@ -48,6 +50,8 @@ if(isset($errors))
     die();
 }
 
+
+
 echo $attractie . " / " . $capaciteit . " / " . $melder . " / " . $overig;
 echo $group;
 //1. Verbinding
@@ -66,5 +70,17 @@ $statement->execute([
     ":prioriteit" => $prioriteit,
 ]);
 header("Location: ../meldingen/index.php?msg=Melding Opgeslagen");
+
+}
+
+if ($action == "update")
+{
+}
+
+if ($action == "delete")
+{
+}
+
+//Variabelen vullen
 
 
